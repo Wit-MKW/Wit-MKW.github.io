@@ -3,36 +3,36 @@
         <title>Ghost Downloads</title>
         <script>
             function decomp_yaz1(data) {
-                var decomp_data = "";
+                var decomp_data = [];
                 var dest_end = 0;
-                for (var i = 4; i < 8, i++) {
+                for (var i = 4; i < 8; i++) {
                     dest_end <<= 8;
-                    dest_end |= data.charCodeAt(i);
+                    dest_end |= data[i];
                 }
-                var src = 8;
+                var src = 16;
                 var gr_head = 0, gr_head_len = 0;
                 while (src < data.length && decomp_data.length < dest_end) {
                     if (gr_head_len == 0) {
-                        gr_head = data.charCodeAt(src);
+                        gr_head = data[src];
                         src++;
                         gr_head_len = 8;
                     }
                     gr_head_len--;
-                    if (gr_head & 0x80 == 0x80) {
-                        decomp_data += data.charAt(src);
+                    if (gr_head & 0x80) {
+                        decomp_data.push(data[src]);
                         src++;
                     } else {
-                        var b1 = data.charAt(src), b2 = data.charAt(src + 1);
+                        var b1 = data[src], b2 = data[src+1];
                         src += 2;
                         var copy_src = decomp_data.length - ((b1 & 0x0F) << 8 | b2) - 1;
                         var n = b1 >> 4;
                         if (n == 0) {
-                            n = data.charCodeAt(src) + 0x12;
+                            n = data[src] + 0x12;
                             src++;
                         } else
                             n += 2;
                         for (; n > 0; n--) {
-                            decomp_data += decomp_data.charAt(copy_src);
+                            decomp_data.push(decomp_data[copy_src]);
                             copy_src++;
                         }
                     }
@@ -41,16 +41,16 @@
                 return decomp_data;
             }
             function make_crc_table() {
-                var[] crc_table = new var[256];
+                var crc_table = [];
                 for (var n = 0; n < 256; n++) {
                     var c = n;
                     for (var k = 0; k < 8; k++) {
-                        if (c & 1 == 1):
+                        if (c & 1 == 1)
                             c = 0xEDB88320 ^ (c >> 1);
-                        else:
+                        else
                             c >>= 1;
                     }
-                    crc_table[n] = c
+                    crc_table.push(c)
                 }
                 return crc_table;
             }
@@ -62,31 +62,39 @@
                 return c;
             }
             function decomp_ghost(ghost) {
-                var comp = String.fromCharCode(ghost.charCodeAt(0xC) && 0xF7);
-                var head = ghost.substring(0, 0xC) + comp + ghost.substring(0xD, 0x88);
+                var head = [];
+                for (var i = 0; i < 0x88; i++)
+                    head.push(ghost[i]);
+                head[0xC] &= 0xF7;
                 var src_end = 0;
-                for (var i = 0x88; i < 0x8C, i++) {
+                for (var i = 0x88; i < 0x8C; i++) {
                     src_end <<= 8;
-                    src_end |= data.charCodeAt(i);
+                    src_end |= ghost[i];
                 }
-                var data = ghost.substring(0x8C, 0x8C + src_end);
+                var data = [];
+                for (var i = 0; i < src_end; i++)
+                    data.push(ghost[0x8C + i]);
                 var input = decomp_yaz1(data);
-                var write = head + data;
-                while (write.length < 0x27FC)
-                    write += "\0";
-                var crc = update_crc(write);
-                write += String.fromCharCode(crc >> 24, (crc >> 16) & 0xFF, (crc >> 8) & 0xFF, crc & 0xFF);
-                return write;
+                for (var i = 0; i < input.length; i++)
+                    head.push(input[i]);
+                while (head.length < 0x27FC)
+                    head.push(0);
+                var crc = update_crc(head);
+                head.push((crc >> 24) & 0xFF);
+                head.push((crc >> 16) & 0xFF);
+                head.push((crc >> 8) & 0xFF);
+                head.push(crc & 0xFF);
+                return head;
             }
             function base64(data) {
                 var b64_digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
                 var ret = "";
                 for (var i = 0; i < data.length; i += 3) {
-                    var next3 = data.charCodeAt(i) << 16;
+                    var next3 = data[i] << 16;
                     if (i + 1 < data.length) {
-                        next3 |= data.charCodeAt(i+1) << 8;
+                        next3 |= data[i+1] << 8;
                         if (i + 2 < data.length)
-                            next3 |= data.charCodeAt(i+2);
+                            next3 |= data[i+2];
                     }
                     ret += b64_digits.charAt(next3 >> 18) + b64_digits.charAt((next3 >> 12) & 63);
                     if (i + 1 < data.length) {
@@ -102,23 +110,21 @@
             }
             function read_text_file(file) {
                 var rawFile = new XMLHttpRequest();
-                var allText = "";
                 rawFile.open("GET", file, false);
-                rawFile.onreadystatechange = function() {
-                    if(rawFile.readyState === 4)
-                        if(rawFile.status === 200 || rawFile.status == 0)
-                            allText = rawFile.responseText;
-                }
+                rawFile.overrideMimeType('text\/plain; charset=x-user-defined');
                 rawFile.send(null);
-                return allText;
+                ret = [];
+                for (var i = 0; i < rawFile.responseText.length; i++)
+                    ret.push(rawFile.responseText.charCodeAt(i) & 0xFF);
+                return ret;
+            }
+            function on_load() {
+                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64," + base64(decomp_ghost(read_text_file("https://wit-mkw.github.io/rainbow_test.rkg"))) + "\" download=\"rainbow_test.rkg\">Uncompressed</a>";
             }
         </script>
     </head>
-    <body>
+    <body onload="on_load()">
         <p><a href="https://wit-mkw.github.io/rainbow_test.rkg">Compressed</a></p>
         <p id="uncomp"/>
-        <script>
-            document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64," + base64(decomp_ghost(read_text_file("https://wit-mkw.github.io/rainbow_test.rkg"))) + "\" download=\"rainbow_test.rkg\">";
-        </script>
     </body>
 </html>
