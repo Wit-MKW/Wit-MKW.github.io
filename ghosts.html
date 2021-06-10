@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Ghost Downloads</title>
+        <title id="title">Ghost Downloads</title>
         <script>
             function decomp_yaz1(data) {
                 var decomp_data = [];
@@ -121,7 +121,9 @@
                 return ret;
             }
             function on_load() {
-                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64," + base64(decomp_ghost(read_text_file("https://wit-mkw.github.io/rainbow_test.rkg"))) + "\" download=\"rainbow_test.rkg\">Uncompressed</a>";
+                dl = new URLSearchParams(window.location.search).get("dl")
+                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64," + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"rainbow_test.rkg\">Uncompressed</a>";
+                document.getElementById("title").innerHTML = dl;
             }
         </script>
     </head>
