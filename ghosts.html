@@ -121,14 +121,17 @@
                 return ret;
             }
             function on_load() {
-                dl = new URLSearchParams(window.location.search).get("dl")
-                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64," + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"rainbow_test.rkg\">Uncompressed</a>";
-                document.getElementById("title").innerHTML = dl;
+                var dl = new URLSearchParams(window.location.search).get("dl");
+                var name = dl.substring(dl.lastIndexOf("/") + 1);
+                document.getElementById("comp").innerHTML = "<a href=\"" + dl + "\">Download compressed ghost (for most purposes)</a>";
+                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64,"
+                    + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"" + name + "\">Download uncompressed ghost (for injecting into save data)</a>";
+                document.getElementById("title").innerHTML = name;
             }
         </script>
     </head>
     <body onload="on_load()">
-        <p><a href="https://wit-mkw.github.io/rainbow_test.rkg">Compressed</a></p>
+        <p id="comp">You need JavaScript to download ghosts.</p>
         <p id="uncomp"/>
     </body>
 </html>
