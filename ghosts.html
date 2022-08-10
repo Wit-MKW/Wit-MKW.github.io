@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title id="title">Ghost Downloads</title>
+        <title id="title">Ghost downloads</title>
         <script>
             function decomp_yaz1(data) {
                 var decomp_data = [];
@@ -122,16 +122,34 @@
             }
             function on_load() {
                 var dl = new URLSearchParams(window.location.search).get("dl");
-                var name = dl.substring(dl.lastIndexOf("/") + 1);
-                document.getElementById("comp").innerHTML = "<a href=\"" + dl + "\">Download compressed ghost (for most purposes)</a>";
-                document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64,"
-                    + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"" + name + "\">Download uncompressed ghost (for injecting into save data)</a>";
-                document.getElementById("title").innerHTML = name;
+                if (dl) {
+                    document.getElementById("list").innerHTML = "";
+                    var name = dl.substring(dl.lastIndexOf("/") + 1);
+                    document.getElementById("comp").innerHTML = "<a href=\"" + dl + "\">Download compressed ghost (for most purposes)</a>";
+                    document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64,"
+                        + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"" + name + "\">Download uncompressed ghost (for injecting into save data)</a>";
+                    document.getElementById("title").innerHTML = name;
+                } else {
+                    document.getElementById("uncomp").innerHTML = "";
+                    var links = document.getElementsByClassName("link");
+                    for (var i = 0; i < links.length; i++)
+                        links[i].setAttribute("href", window.location.href + "?dl=" + links[i].getAttribute("href"));
+                }
             }
         </script>
     </head>
     <body onload="on_load()">
-        <p id="comp">You need JavaScript to download ghosts.</p>
-        <p id="uncomp"/>
+        <p id="comp">&#42; Dates refer to the ghost metadata, i.e. the date set on the console when the run completed.</p>
+        <p id="uncomp">You need JavaScript to download uncompressed ghosts.</p>
+        <table id="list">
+            <tr>
+                <th>Course</th>
+                <th>Time</th>
+                <th>Best lap</th>
+                <th>Character @ Vehicle</th>
+                <th>Date&#42;</th>
+                <th>Download</th>
+            </tr>
+        </table>
     </body>
 </html>
