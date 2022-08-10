@@ -126,8 +126,12 @@
                     document.getElementById("list").innerHTML = "";
                     var name = dl.substring(dl.lastIndexOf("/") + 1);
                     document.getElementById("comp").innerHTML = "<a href=\"" + dl + "\">Download compressed ghost (for most purposes)</a>";
-                    document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64,"
-                        + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"" + name + "\">Download uncompressed ghost (for injecting into save data)</a>";
+                    try {
+                        document.getElementById("uncomp").innerHTML = "<a href=\"data:application/octet-stream;charset=utf-8;base64,"
+                            + base64(decomp_ghost(read_text_file(dl))) + "\" download=\"" + name + "\">Download uncompressed ghost (for injecting into save data)</a>";
+                    } catch (err) {
+                        document.getElementById("uncomp").innerHTML = "Some external ghosts cannot be downloaded uncompressed.";
+                    }
                     document.getElementById("title").innerHTML = name;
                 } else {
                     document.getElementById("uncomp").innerHTML = "";
