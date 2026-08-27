@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Eevee team creator</title>
+		<script type="text/javascript">
+			var dvs = [Math.floor(Math.random() * 65536), Math.floor(Math.random() * 65536), Math.floor(Math.random() * 65536), Math.floor(Math.random() * 65536), Math.floor(Math.random() * 65536), Math.floor(Math.random() * 65536)];
+			const items = ["—","Master Ball","Ultra Ball","BrightPowder","Great Ball","Poké Ball","Teru-sama","Bicycle","Moon Stone","Antidote","Burn Heal","Ice Heal","Awakening","Parlyz Heal","Full Restore","Max Potion","Hyper Potion","Super Potion","Potion","Escape Rope","Repel","Max Elixer","Fire Stone","Thunderstone","Water Stone","Teru-sama","HP Up","Protein","Iron","Carbos","Lucky Punch","Calcium","Rare Candy","X Accuracy","Leaf Stone","Metal Powder","Nugget","Poké Doll","Full Heal","Revive","Max Revive","Guard Spec.","Super Repel","Max Repel","Dire Hit","Teru-sama","Fresh Water","Soda Pop","Lemonade","X Attack","Teru-sama","X Defend","X Speed","X Special","Coin Case","Itemfinder","Teru-sama","Exp.Share","Old Rod","Good Rod","Silver Leaf","Super Rod","PP Up","Ether","Max Ether","Elixer","Red Scale","SecretPotion","S.S. Ticket","Mystery Egg","Clear Bell*","Silver Wing","Moomoo Milk","Quick Claw","PSNCureBerry","Gold Leaf","Soft Sand","Sharp Beak","PRZCureBerry","Burnt Berry","Ice Berry","Poison Barb","King's Rock","Bitter Berry","Mint Berry","Red Apricorn","TinyMushroom","Big Mushroom","SilverPowder","Blu Apricorn","Teru-sama","Amulet Coin","Ylw Apricorn","Grn Apricorn","Cleanse Tag","Mystic Water","TwistedSpoon","Wht Apricorn","Blackbelt","Blk Apricorn","Teru-sama","Pnk Apricorn","BlackGlasses","SlowpokeTail","Pink Bow","Stick","Smoke Ball","NeverMeltIce","Magnet","MiracleBerry","Pearl","Big Pearl","Everstone","Spell Tag","RageCandyBar","GS Ball*","Blue Card*","Miracle Seed","Thick Club","Focus Band","Teru-sama","EnergyPowder","Energy Root","Heal Powder","Revival Herb","Hard Stone","Lucky Egg","Card Key","Machine Part","Egg Ticket*","Lost Item","Stardust","Star Piece","Basement Key","Pass","Teru-sama","Teru-sama","Teru-sama","Charcoal","Berry Juice","Scope Lens","Teru-sama","Teru-sama","Metal Coat","Dragon Fang","Teru-sama","Leftovers","Teru-sama","Teru-sama","Teru-sama","MysteryBerry","Dragon Scale","Berserk Gene","Teru-sama","Teru-sama","Teru-sama","Sacred Ash","Heavy Ball","Flower Mail","Level Ball","Lure Ball","Fast Ball","Teru-sama","Light Ball","Friend Ball","Moon Ball","Love Ball","Normal Box","Gorgeous Box","Sun Stone","Polkadot Bow","Teru-sama","Up-Grade","Berry","Gold Berry","SquirtBottle","Teru-sama","Park Ball","Rainbow Wing","Teru-sama","Brick Piece","Surf Mail","Litebluemail","Portraitmail","Lovely Mail","Eon Mail","Morph Mail","Bluesky Mail","Music Mail","Mirage Mail","Teru-sama","TM01","TM02","TM03","TM04","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","HM01","HM02","HM03","HM04","HM05","HM06","HM07","HM08","HM09","HM10","HM11","HM12","Cancel"];
+			const ill_items = [6,7,25,45,50,54,55,56,58,59,61,66,67,68,69,70,71,90,100,115,116,127,128,129,130,133,134,135,136,137,141,142,145,147,148,149,153,154,155,162,171,175,176,178,179,190,195,220,243,244,245,246,247,248,249,250,251,252,253,254,255];
+			const moves = ["—","Pound","Karate Chop","Double Slap","Comet Punch","Mega Punch","Pay Day","Fire Punch","Ice Punch","Thunder Punch","Scratch","Vise Grip","Guillotine","Razor Wind","Swords Dance","Cut","Gust","Wing Attack","Whirlwind","Fly","Bind","Slam","Vine Whip","Stomp","Double Kick","Mega Kick","Jump Kick","Rolling Kick","Sand Attack","Headbutt","Horn Attack","Fury Attack","Horn Drill","Tackle","Body Slam","Wrap","Take Down","Thrash","Double-Edge","Tail Whip","Poison Sting","Twineedle","Pin Missile","Leer","Bite","Growl","Roar","Sing","Supersonic","Sonic Boom","Disable","Acid","Ember","Flamethrower","Mist","Water Gun","Hydro Pump","Surf","Ice Beam","Blizzard","Psybeam","Bubble Beam","Aurora Beam","Hyper Beam","Peck","Drill Peck","Submission","Low Kick","Counter","Seismic Toss","Strength","Absorb","Mega Drain","Leech Seed","Growth","Razor Leaf","Solar Beam","Poison Powder","Stun Spore","Sleep Powder","Petal Dance","String Shot","Dragon Rage","Fire Spin","Thunder Shock","Thunderbolt","Thunder Wave","Thunder","Rock Throw","Earthquake","Fissure","Dig","Toxic","Confusion","Psychic","Hypnosis","Meditate","Agility","Quick Attack","Rage","Teleport","Night Shade","Mimic","Screech","Double Team","Recover","Harden","Minimize","Smokescreen","Confuse Ray","Withdraw","Defense Curl","Barrier","Light Screen","Haze","Reflect","Focus Energy","Bide","Metronome","Mirror Move","Self-Destruct","Egg Bomb","Lick","Smog","Sludge","Bone Club","Fire Blast","Waterfall","Clamp","Swift","Skull Bash","Spike Cannon","Constrict","Amnesia","Kinesis","Soft-Boiled","High Jump Kick","Glare","Dream Eater","Poison Gas","Barrage","Leech Life","Lovely Kiss","Sky Attack","Transform","Bubble","Dizzy Punch","Spore","Flash","Psywave","Splash","Acid Armor","Crabhammer","Explosion","Fury Swipes","Bonemerang","Rest","Rock Slide","Hyper Fang","Sharpen","Conversion","Tri Attack","Super Fang","Slash","Substitute","Struggle","Sketch","Triple Kick","Thief","Spider Web","Mind Reader","Nightmare","Flame Wheel","Snore","Curse","Flail","Conversion 2","Aeroblast","Cotton Spore","Reversal","Spite","Powder Snow","Protect","Mach Punch","Scary Face","Feint Attack","Sweet Kiss","Belly Drum","Sludge Bomb","Mud-Slap","Octazooka","Spikes","Zap Cannon","Foresight","Destiny Bond","Perish Song","Icy Wind","Detect","Bone Rush","Lock-On","Outrage","Sandstorm","Giga Drain","Endure","Charm","Rollout","False Swipe","Swagger","Milk Drink","Spark","Fury Cutter","Steel Wing","Mean Look","Attract","Sleep Talk","Heal Bell","Return","Present","Frustration","Safeguard","Pain Split","Sacred Fire","Magnitude","Dynamic Punch","Megahorn","Dragon Breath","Baton Pass","Encore","Pursuit","Rapid Spin","Sweet Scent","Iron Tail","Metal Claw","Vital Throw","Morning Sun","Synthesis","Moonlight","Hidden Power","Cross Chop","Twister","Rain Dance","Sunny Day","Crunch","Mirror Coat","Psych Up","Extreme Speed","Ancient Power","Shadow Ball","Future Sight","Rock Smash","Whirlpool","Beat Up","Fake Out","Uproar","Stockpile","Spit Up"];
+			const legal_moves = [
+				[[175,204],[226],[34,38,99,102,115,117,130,164],[],[0,28,29,33,36,39,44,45,92,98,104,116,129,156,173,174,182,189,197,203,207,213,214,216,218,231,237,240,241,247],[]],
+				[[175,204],[226],[34,38,99,102,115,117,130,164],[54,61],[0,28,29,33,36,39,44,45,46,55,57,58,59,62,63,92,98,104,114,116,127,129,151,156,173,174,182,189,196,197,203,207,213,214,216,218,231,237,240,241,247,250],[56]],
+				[[175,204],[226],[34,38,99,102,115,117,130,148,164],[],[0,24,28,29,33,36,39,42,44,45,63,84,85,86,87,92,97,98,104,116,129,156,173,174,182,189,192,197,203,207,213,214,216,218,231,237,240,241,247],[]],
+				[[175,204],[226],[34,38,99,102,115,117,130,164],[],[0,28,29,33,36,39,43,44,45,52,53,63,83,92,98,104,116,123,126,129,156,173,174,182,189,192,197,203,207,213,214,216,218,231,237,240,241,247],[]],
+				[[175,204],[226],[34,38,99,102,115,117,130,164],[],[0,15,28,29,33,36,39,44,45,60,63,92,93,94,98,104,116,129,138,148,156,171,173,174,182,189,192,197,203,207,213,214,216,218,231,237,240,241,244,247],[234]],
+				[[175,204],[226],[34,38,99,102,115,117,130,164],[],[0,15,28,29,33,36,39,44,45,63,92,94,98,103,104,109,116,129,138,148,156,171,173,174,182,185,189,192,197,203,207,212,213,214,216,218,228,231,237,240,241,244,247],[236]]
+			];
+			const move_prefix = ["(a) ","(b) ","(c) ","(d) ","","* "];
+			const names = ["EEVEE\0\0\0\0\0","VAPOREON\0\0","JOLTEON\0\0\0","FLAREON\0\0\0","ESPEON\0\0\0\0","UMBREON\0\0\0"];
+			function hp_power(dv) {
+				var a = (dv & 0x8000) >> 12 | (dv & 0x800) >> 9 | (dv & 0x80) >> 6 | (dv & 8) >> 3;
+				return Math.floor((a * 5 + dv % 4) / 2) + 31;
+			}
+			function hp_type(dv) {
+				const hp_types = ["Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark"];
+				var a = (dv & 0x3000) >> 10 | (dv & 0x300) >> 8;
+				return hp_types[a];
+			}
+			function convert_name(name,len) {
+				const charmap = {"\0":0x50," ":0x7f,"-":0xe3,"?":0xe6,"!":0xe7,"/":0xf3,".":0xe8,",":0xf4,"(":0x9a,")":0x9b,":":0x9c,"[":0x9e,"]":0x9f,";":0x9d,"*":0xf1,"@":0xe1,"#":0xe2};
+				var ret = [];
+				for (var i = 0; i < name.length; i++) {
+					var c = name.charAt(i);
+					if (c in charmap) {
+						ret.push(charmap[c]);
+					} else {
+						var x = c.charCodeAt();
+						if ((x >= 0x41 && x <= 0x5a) || (x >= 0x61 && x <= 0x7a))
+							ret.push(x + 0x3f);
+						else
+							ret.push(0xe6);
+					}
+				}
+				ret.push(0x50);
+				while (ret.length < len)
+					ret.push(0);
+				return ret;
+			}
+			function populate_divs() {
+				for (var i = 0; i < 6; i++) {
+					var mon_item = document.getElementById("mon" + i + "_item");
+					for (var j = 0; j < 256; j++) {
+						if (!ill_items.includes(j))
+							mon_item.innerHTML += "<option value=\"" + j + "\">" + items[j] + "</option>";
+					}
+					var mon_move0 = document.getElementById("mon" + i + "_move0");
+					for (var j = 0; j < 256; j++) {
+						for (var k = 0; k < 6; k++) {
+							if (legal_moves[i][k].includes(j)) {
+								mon_move0.innerHTML += "<option value=\"" + j + "\">" + move_prefix[k] + moves[j] + "</option>";
+								break;
+							}
+						}
+					}
+					for (var j = 1; j < 4; j++) {
+						var mon_move = document.getElementById("mon" + i + "_move" + j);
+						mon_move.innerHTML = mon_move0.innerHTML;
+					}
+					var dv_info = "HP: " + ((dvs[i] & 0x1000) >> 9 | (dvs[i] & 0x100) >> 6 | (dvs[i] & 0x10) >> 3 | (dvs[i] & 1)) + "/15</br>";
+					dv_info += "Attack: " + (dvs[i] >> 12) + "/15 (" + ((dvs[i] < 0x2000) ? "female" : "male") + ")<br/>";
+					dv_info += "Defense: " + ((dvs[i] >> 8) & 0xf) + "/15<br/>";
+					dv_info += "Speed: " + ((dvs[i] >> 4) & 0xf) + "/15<br/>";
+					dv_info += "Special: " + (dvs[i] & 0xf) + "/15<br/>";
+					dv_info += "Hidden Power: " + hp_power(dvs[i]) + " " + hp_type(dvs[i]) + " (" + ((dvs[i] & 0x2000) ? "special" : "physical") + ")<br/>";
+					if ((dvs[i] & 0x2fff) == 0x2aaa)
+						dv_info += "<b>Shiny!</b><br/>";
+					var mon = document.getElementById("mon" + i);
+					mon.innerHTML = dv_info + mon.innerHTML;
+				}
+			}
+			function calc_code() {
+				var trainer = document.getElementById("trainer");
+				if (!trainer.value.replace(/ /g, "")) {
+					alert("Your trainer name is blank.");
+					return
+				}
+				var temp = [0,0,0,0,0,0];
+				for (var i = 0; i < 6; i++) {
+					var mon_level = document.getElementById("mon" + i + "_level");
+					temp[i] = parseInt(mon_level.value);
+				}
+				temp.sort();
+				if (temp[0] + temp[1] + temp[5] > 155) {
+					alert("At least one Pokémon is too high a level to battle with even the two lowest-level Pokémon.");
+					return;
+				}
+				for (var i = 0; i < 6; i++) {
+					var mon_item = document.getElementById("mon" + i + "_item");
+					temp[i] = parseInt(mon_item.value);
+					if (temp[i] != 0) {
+						for (var j = 0; j < i; j++) {
+							if (temp[i] == temp[j]) {
+								alert("Multiple Pokémon are holding the same item.");
+								return;
+							}
+						}
+					}
+				}
+				for (var i = 0; i < 6; i++) {
+					var mon_level = document.getElementById("mon" + i + "_level");
+					temp[5] = parseInt(mon_level.value);
+					for (var j = 0; j < 4; j++) {
+						var mon_move = document.getElementById("mon" + i + "_move" + j);
+						temp[j] = parseInt(mon_move.value);
+						if (temp[j] != 0) {
+							if (temp[5] < 52 && legal_moves[i][5].includes(temp[j])) {
+								alert("At least one Pokémon has a move at too early a level.");
+							}
+							for (var k = 0; k < j; k++) {
+								if (temp[k] == 0) {
+									alert("At least one Pokémon has empty space(s) in its moveset.");
+									return;
+								} else if (temp[j] == temp[k]) {
+									alert("At least one Pokémon has duplicate moves.");
+									return;
+								} else {
+									if ((legal_moves[i][0].includes(temp[j]) && legal_moves[i][3].includes(temp[k])) || (legal_moves[i][3].includes(temp[j]) && legal_moves[i][0].includes(temp[k]))) {
+										alert("At least one Pokémon has an illegal mix of lettered moves.");
+										return;
+									}
+									for (var l = 0; l < 4; l++) {
+										if (legal_moves[i][l].includes(temp[j]) && legal_moves[i][l^2].includes(temp[k])) {
+											alert("At least one Pokémon has an illegal mix of lettered moves.");
+											return;
+										}
+									}
+								}
+							}
+						} else if (j == 0) {
+							alert("At least one Pokémon's first move slot is empty.");
+							return;
+						}
+					}
+				}
+				var data = new Uint8Array(131);
+				var tid = document.getElementById("tid");
+				data[0] = parseInt(tid.value) >> 8;
+				data[1] = parseInt(tid.value) & 0xff;
+				var trainer_data = convert_name(trainer.value, 8);
+				for (var i = 0; i < 8; i++)
+					data[2+i] = trainer_data[i];
+				for (var i = 0; i < 6; i++) {
+					var offs = i * 20 + 10;
+					var mon_item = document.getElementById("mon" + i + "_item");
+					data[offs] = parseInt(mon_item.value);
+					for (var j = 0; j < 4; j++) {
+						var mon_move = document.getElementById("mon" + i + "_move" + j);
+						data[offs+1+j] = parseInt(mon_move.value);
+					}
+					data[offs+5] = dvs[i] >> 8;
+					data[offs+6] = dvs[i] & 0xff;
+					var mon_friend = document.getElementById("mon" + i + "_friend");
+					data[offs+7] = parseInt(mon_friend.value);
+					var mon_level = document.getElementById("mon" + i + "_level");
+					data[offs+8] = parseInt(mon_level.value);
+					var mon_nick = document.getElementById("mon" + i + "_nick");
+					var mon_nick_data = convert_name(mon_nick.value, 11);
+					if (!mon_nick.value.replace(/ /g, ""))
+						mon_nick_data = convert_name(names[i], 11);
+					for (var j = 0; j < 11; j++) {
+						data[offs+9+j] = mon_nick_data[j];
+					}
+				}
+				var female = document.getElementById("female");
+				data[130] = female.checked ? 1 : 0;
+				document.getElementById("code").innerHTML = data.toBase64({omitPadding: true}).replace(/9/g, "9A").replace(/\+/g, "9B").replace(/\//g, "9C");
+			}
+		</script>
+	</head>
+	<body onload="populate_divs()">
+		Name/nickname characters (traditionally all-caps):
+		<ul>
+			<li>A-Z, a-z, spaces</li>
+			<li>- ? ! / . , ( ) : [ ] ; *</li>
+			<li>@ # (shown as PK MN)</li>
+		</ul>
+		Moveset notes:
+		<ul>
+			<li>No duplicate moves.</li>
+			<li>Empty slot(s) must be at the end.</li>
+			<li>Lettered moves can only be mixed as a+b, b+c, or c+d.</li>
+			<li>Moves with * are only valid at level 52+.</li>
+		</ul>
+
+		<label for="gender">Trainer gender:</label>
+		<input name="gender" id="male" type="radio" checked="checked"/>
+		<label for="male">male</label>
+		<input name="gender" id="female" type="radio"/>
+		<label for="female">female</label>
+		<br/><label for="tid">Trainer ID:</label>
+		<input name="tid" id="tid" type="number" min="0" max="65535" value="0"/>
+		<br/><label for="trainer">Trainer name:</label>
+		<input name="trainer" id="trainer" maxlength="7"/>
+		<hr/>
+
+		<h1>Eevee</h1>
+		<div id="mon0">
+			<br/><label for="mon0_nick">Nickname:</label>
+			<input name="mon0_nick" id="mon0_nick" maxlength="10"/>
+			<br/><label for="mon0_item">Item:</label>
+			<select name="mon0_item" id="mon0_item"></select>
+			<br/><label for="mon0_move0">Move 1:</label>
+			<select name="mon0_move0" id="mon0_move0"></select>
+			<br/><label for="mon0_move1">Move 2:</label>
+			<select name="mon0_move1" id="mon0_move1"></select>
+			<br/><label for="mon0_move2">Move 3:</label>
+			<select name="mon0_move2" id="mon0_move2"></select>
+			<br/><label for="mon0_move3">Move 4:</label>
+			<select name="mon0_move3" id="mon0_move3"></select>
+			<br/><label for="mon0_friend">Friendship:</label>
+			<input name="mon0_friend" id="mon0_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon0_level">Level:</label>
+			<input name="mon0_level" id="mon0_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<h1>Vaporeon</h1>
+		<div id="mon1">
+			<br/><label for="mon1_nick">Nickname:</label>
+			<input name="mon1_nick" id="mon1_nick" maxlength="10"/>
+			<br/><label for="mon1_item">Item:</label>
+			<select name="mon1_item" id="mon1_item"></select>
+			<br/><label for="mon1_move0">Move 1:</label>
+			<select name="mon1_move0" id="mon1_move0"></select>
+			<br/><label for="mon1_move1">Move 2:</label>
+			<select name="mon1_move1" id="mon1_move1"></select>
+			<br/><label for="mon1_move2">Move 3:</label>
+			<select name="mon1_move2" id="mon1_move2"></select>
+			<br/><label for="mon1_move3">Move 4:</label>
+			<select name="mon1_move3" id="mon1_move3"></select>
+			<br/><label for="mon1_friend">Friendship:</label>
+			<input name="mon1_friend" id="mon1_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon1_level">Level:</label>
+			<input name="mon1_level" id="mon1_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<h1>Jolteon</h1>
+		<div id="mon2">
+			<br/><label for="mon2_nick">Nickname:</label>
+			<input name="mon2_nick" id="mon2_nick" maxlength="10"/>
+			<br/><label for="mon2_item">Item:</label>
+			<select name="mon2_item" id="mon2_item"></select>
+			<br/><label for="mon2_move0">Move 1:</label>
+			<select name="mon2_move0" id="mon2_move0"></select>
+			<br/><label for="mon2_move1">Move 2:</label>
+			<select name="mon2_move1" id="mon2_move1"></select>
+			<br/><label for="mon2_move2">Move 3:</label>
+			<select name="mon2_move2" id="mon2_move2"></select>
+			<br/><label for="mon2_move3">Move 4:</label>
+			<select name="mon2_move3" id="mon2_move3"></select>
+			<br/><label for="mon2_friend">Friendship:</label>
+			<input name="mon2_friend" id="mon2_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon2_level">Level:</label>
+			<input name="mon2_level" id="mon2_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<h1>Flareon</h1>
+		<div id="mon3">
+			<br/><label for="mon3_nick">Nickname:</label>
+			<input name="mon3_nick" id="mon3_nick" maxlength="10"/>
+			<br/><label for="mon3_item">Item:</label>
+			<select name="mon3_item" id="mon3_item"></select>
+			<br/><label for="mon3_move0">Move 1:</label>
+			<select name="mon3_move0" id="mon3_move0"></select>
+			<br/><label for="mon3_move1">Move 2:</label>
+			<select name="mon3_move1" id="mon3_move1"></select>
+			<br/><label for="mon3_move2">Move 3:</label>
+			<select name="mon3_move2" id="mon3_move2"></select>
+			<br/><label for="mon3_move3">Move 4:</label>
+			<select name="mon3_move3" id="mon3_move3"></select>
+			<br/><label for="mon3_friend">Friendship:</label>
+			<input name="mon3_friend" id="mon3_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon3_level">Level:</label>
+			<input name="mon3_level" id="mon3_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<h1>Espeon</h1>
+		<div id="mon4">
+			<br/><label for="mon4_nick">Nickname:</label>
+			<input name="mon4_nick" id="mon4_nick" maxlength="10"/>
+			<br/><label for="mon4_item">Item:</label>
+			<select name="mon4_item" id="mon4_item"></select>
+			<br/><label for="mon4_move0">Move 1:</label>
+			<select name="mon4_move0" id="mon4_move0"></select>
+			<br/><label for="mon4_move1">Move 2:</label>
+			<select name="mon4_move1" id="mon4_move1"></select>
+			<br/><label for="mon4_move2">Move 3:</label>
+			<select name="mon4_move2" id="mon4_move2"></select>
+			<br/><label for="mon4_move3">Move 4:</label>
+			<select name="mon4_move3" id="mon4_move3"></select>
+			<br/><label for="mon4_friend">Friendship:</label>
+			<input name="mon4_friend" id="mon4_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon4_level">Level:</label>
+			<input name="mon4_level" id="mon4_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<h1>Umbreon</h1>
+		<div id="mon5">
+			<br/><label for="mon5_nick">Nickname:</label>
+			<input name="mon5_nick" id="mon5_nick" maxlength="10"/>
+			<br/><label for="mon5_item">Item:</label>
+			<select name="mon5_item" id="mon5_item"></select>
+			<br/><label for="mon5_move0">Move 1:</label>
+			<select name="mon5_move0" id="mon5_move0"></select>
+			<br/><label for="mon5_move1">Move 2:</label>
+			<select name="mon5_move1" id="mon5_move1"></select>
+			<br/><label for="mon5_move2">Move 3:</label>
+			<select name="mon5_move2" id="mon5_move2"></select>
+			<br/><label for="mon5_move3">Move 4:</label>
+			<select name="mon5_move3" id="mon5_move3"></select>
+			<br/><label for="mon5_friend">Friendship:</label>
+			<input name="mon5_friend" id="mon5_friend" type="number" min="0" max="255" value="70"/>/255
+			<br/><label for="mon5_level">Level:</label>
+			<input name="mon5_level" id="mon5_level" type="number" min="50" max="55" value="51"/>
+		</div>
+
+		<hr/><button type="button" onclick="calc_code()">Calculate code</button>
+		<pre id="code"></pre>
+	</body>
+</html>
